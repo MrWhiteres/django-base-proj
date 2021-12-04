@@ -34,9 +34,8 @@ def find_instances():
         {'Name': 'instance-state-name', 'Values': ['running']},
         {'Name': 'tag:Role', 'Values': ['movies-app']},
     ])
-    return [print("Id: {0}\nPlatform: {1}\nType: {2}\nPublic IPv4: {3}\nAMI: {4}\nState: {5}\n".format(
-         instance.id, instance.platform, instance.instance_type, instance.public_ip_address, instance.image.id, instance.state
-         )) for instance in ec2.instances.all()]
+    return [print(f"Platform: {instance.platform}"
+         ) for instance in ec2.instances.all()]
 
 
 def deploy_host(instance):
